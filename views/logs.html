@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Logs</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/firstandthird/ft-ui/75b41702c742423474dea0d09945a042ee2fa2ef/dist/ft-ui.css"/>
+    <link rel="stylesheet" href="{{endpoint}}/ui/logs.css"/>
+  </head>
+  <body>
+    <h1 class="spacing-medium">Logs</h1>
+    <table>
+      <thead>
+        <th>Time</th>
+        <th>Event</th>
+        <th>Tags</th>
+        <th>Preview</th>
+      </thead>
+      <tbody>
+        {{#each logs}}
+          <tr class="log-entry">
+            <td class="log-timestamp">{{relative timestamp}}</td>
+            <td class="log-event">{{event}}</td>
+            <td class="log-tags">{{join tags ", "}}</td>
+            <td class="log-preview">{{preview this}}</td>
+          </tr>
+          <tr class="log-details">
+            <td colspan="4"><pre>{{stringify . true}}</pre></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="{{endpoint}}/ui/logs.js"></script>
+  </body>
+</html>
