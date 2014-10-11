@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "handlebars": "^2.0.0",
+    "hoek": "^2.5.1",
     "mongodb": "^1.4.19",
     "monquery": "git://github.com/DataGarage/node-monquery",
     "relative-date": "^1.1.1"

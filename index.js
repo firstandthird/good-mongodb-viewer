@@ -1,14 +1,22 @@
 var MongoClient = require('mongodb').MongoClient;
 var Handlebars = require('handlebars');
 var monquery = require('monquery');
+var Hoek = require('hoek');
+
+var defaults = {
+  endpoint: '/logs',
+  connectionUrl: ''
+};
 
 exports.register = function(plugin, options, next) {
 
-  var endpoint = '/logs';
+  options = Hoek.applyToDefaults(defaults, options);
+
+  if (!options.connectionUrl) {
+    return next('connectionUrl is required');
+  }
 
   var db;
-  //TODO: require connectionurl
-  //TODO: merge options with defaults
 
   plugin.path(__dirname);
   plugin.views({
@@ -23,7 +31,7 @@ exports.register = function(plugin, options, next) {
 
   plugin.route([
     {
-      path: endpoint+'/ui/{path*}',
+      path: options.endpoint+'/ui/{path*}',
       method: 'GET',
       handler: {
         directory: {
@@ -34,7 +42,7 @@ exports.register = function(plugin, options, next) {
       }
     },
     {
-      path: endpoint,
+      path: options.endpoint,
       method: 'GET',
       handler: function(request, reply) {
 
@@ -49,7 +57,7 @@ exports.register = function(plugin, options, next) {
           reply.view('logs', {
             logs: logs,
             query: request.query.query || '',
-            endpoint: endpoint
+            endpoint: options.endpoint
           });
         });
       }
