@@ -8,6 +8,19 @@
   </head>
   <body>
     <h1 class="spacing-medium">Logs</h1>
+    <ul class="quick-search list-inline spacing-small font-size-small">
+      <li>Quick Search:</li>
+      <li><a href="{{endpoint}}">All</a></li>
+      <li><a href="{{endpoint}}?query=event:request">Requests</a></li>
+      <li><a href="{{endpoint}}?query=event:ops">Ops</a></li>
+      <li><a href="{{endpoint}}?query=event:log">Log</a></li>
+      <li><a href="{{endpoint}}?query=event:error">Error</a></li>
+      <li><a href="{{endpoint}}?query=event:request AND statusCode!=200">4xx</a></li>
+      <li><a href="{{endpoint}}?query=event:request AND statusCode:500">500</a></li>
+    </ul>
+    <form class="form spacing-medium" action="{{endpoint}}" method="GET">
+      <input placeholder="Search..." class="form--input" type="text" value="{{query}}" name="query"/>
+    </form>
     <table>
       <thead>
         <th>Time</th>
@@ -19,7 +32,7 @@
         {{#each logs}}
           <tr class="log-entry">
             <td class="log-timestamp">{{relative timestamp}}</td>
-            <td class="log-event">{{event}}</td>
+            <td class="log-event"><a href="{{../endpoint}}?query=event:{{event}}">{{event}}</a></td>
             <td class="log-tags">{{join tags ", "}}</td>
             <td class="log-preview">{{preview this}}</td>
           </tr>

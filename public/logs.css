@@ -32,3 +32,7 @@ td {
 .log-event {
   width: 100px;
 }
+
+.quick-search li {
+  padding-right: 10px;
+}

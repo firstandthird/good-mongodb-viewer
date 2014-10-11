@@ -1,6 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 var Handlebars = require('handlebars');
-
+var monquery = require('monquery');
 
 exports.register = function(plugin, options, next) {
 
@@ -40,9 +40,15 @@ exports.register = function(plugin, options, next) {
 
         var collection = db.collection(options.collection);
 
-        collection.find({}, { sort: { timestamp: -1 }, limit: 100 }).toArray(function(err, logs) {
+        var searchQuery = {};
+        if (request.query.query) {
+          searchQuery = monquery(request.query.query);
+        }
+
+        collection.find(searchQuery, { sort: { timestamp: -1 }, limit: 1000 }).toArray(function(err, logs) {
           reply.view('logs', {
             logs: logs,
+            query: request.query.query || '',
             endpoint: endpoint
           });
         });
