@@ -34,7 +34,37 @@
             <td class="log-timestamp">{{relative timestamp}}</td>
             <td class="log-event"><a href="{{../endpoint}}?query=event:{{event}}">{{event}}</a></td>
             <td class="log-tags">{{join tags ", "}}</td>
-            <td class="log-preview">{{preview this}}</td>
+            <td class="log-preview">
+              {{#ifequal event "request"}}
+                <span class="log-request-method">{{method}}</span>
+                <span class="log-request-path">{{path}}</span>
+                <span class="log-request-query">{{stringify query}}</span>
+                <span class="log-request-status">{{statusCode}}</span>
+                <span class="log-request-response-time">{{responseTime}}ms</span>
+              {{/ifequal}}
+              {{#ifequal event "ops"}}
+                <span class="log-ops-load"><label>Load:</label> {{join os.load ", "}}</span>
+                <span class="log-ops-mem"><label>Mem:</label> {{os.mem.free}}/{{os.mem.total}}</span><br/>
+                <span class="log-ops-requests">
+                  <label>Requests:</label>
+                  {{#each load.requests}}
+                    {{total}} ({{@key}})
+                  {{/each}}
+                </span>
+                <span class="log-ops-response">
+                  <label>Response Times:</label>
+                  {{#each load.responseTimes}}
+                    {{avg}}/{{max}} ({{@key}})
+                  {{/each}}
+                </span>
+              {{/ifequal}}
+              {{#ifequal event "error"}}
+                {{message}}
+              {{/ifequal}}
+              {{#if data}}
+                <span class="log-data">{{stringify data}}</span>
+              {{/if}}
+            </td>
           </tr>
           <tr class="log-details">
             <td colspan="4"><pre>{{stringify . true}}</pre></td>
