@@ -11,20 +11,27 @@ var server = new Hapi.Server(8080, '0.0.0.0', {
 var mongoUrl = 'mongodb://localhost:27017/good-mongodb';
 var goodOptions = {
   //extendedRequests: true,
+  //opsInterval: 5000,
   reporters: [{
-      reporter: Good.GoodConsole
+      reporter: Good.GoodConsole,
+      args: [{
+        events: {
+          //ops: '*',
+          request: '*',
+          log: '*',
+          error: '*'
+        }
+      }]
     },
     {
       reporter: GoodMongoDb,
       args: [mongoUrl, {
-        /*
         events: {
           ops: '*',
           request: '*',
           log: '*',
           error: '*'
         }
-        */
       }]
     }
   ]
