@@ -33,8 +33,10 @@ exports.register = function(plugin, options, next) {
   plugin.route([
     {
       path: options.endpoint+'/ui/{path*}',
-      auth: options.auth,
       method: 'GET',
+      config: {
+        auth: options.auth,
+      },
       handler: {
         directory: {
           path: './public',
@@ -46,7 +48,9 @@ exports.register = function(plugin, options, next) {
     {
       path: options.endpoint,
       method: 'GET',
-      auth: options.auth,
+      config: {
+        auth: options.auth,
+      },
       handler: function(request, reply) {
 
         var collection = db.collection(options.collection);
