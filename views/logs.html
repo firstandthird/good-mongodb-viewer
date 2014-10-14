@@ -15,7 +15,7 @@
       <li><a href="{{endpoint}}?query=event:ops">Ops</a></li>
       <li><a href="{{endpoint}}?query=event:log">Log</a></li>
       <li><a href="{{endpoint}}?query=event:error">Error</a></li>
-      <li><a href="{{endpoint}}?query=event:request AND statusCode!=200">4xx</a></li>
+      <li><a href="{{endpoint}}?query=event:request AND statusCode!=200 AND statusCode!=304">4xx</a></li>
       <li><a href="{{endpoint}}?query=event:request AND statusCode:500">500</a></li>
     </ul>
     <form class="form spacing-medium" action="{{endpoint}}" method="GET">
