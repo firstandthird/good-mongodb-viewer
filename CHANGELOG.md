@@ -1,4 +1,11 @@
 
+0.1.0 / 2014-10-14 
+==================
+
+  * ignore statusCode 304 on 4xx search
+  * updated monquery
+  * defaulted collection to logs
+
 0.0.3 / 2014-10-11 
 ==================
 
