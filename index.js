@@ -6,6 +6,7 @@ var Hoek = require('hoek');
 var defaults = {
   endpoint: '/logs',
   auth: false,
+  collection: 'logs',
   connectionUrl: ''
 };
 
