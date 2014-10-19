@@ -33,7 +33,11 @@
           <tr class="log-entry">
             <td class="log-timestamp">{{relative timestamp}}</td>
             <td class="log-event"><a href="{{../endpoint}}?query=event:{{event}}">{{event}}</a></td>
-            <td class="log-tags">{{join tags ", "}}</td>
+            <td class="log-tags">
+              {{#each tags}}
+                <a href="{{../endpoint}}?query=tags:{{this}}">{{this}}</a>&nbsp;
+              {{/each}}
+            </td>
             <td class="log-preview log-type-{{event}}">
               {{#ifequal event "request"}}
                 <span class="log-request-method">{{method}}</span>
