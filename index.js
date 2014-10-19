@@ -7,7 +7,15 @@ var defaults = {
   endpoint: '/logs',
   auth: false,
   collection: 'logs',
-  connectionUrl: ''
+  connectionUrl: '',
+  searches: {
+    'Requests': 'event:request',
+    'Ops': 'event:ops',
+    'Log': 'event:log',
+    'Error': 'event:error',
+    '4xxs': 'event:request AND statusCode!=200 AND statusCode!=304 AND statusCode!=302 AND statusCode!=500',
+    '500s': 'event:request AND statusCode:500'
+  }
 };
 
 exports.register = function(plugin, options, next) {
@@ -65,7 +73,8 @@ exports.register = function(plugin, options, next) {
           reply.view('logs', {
             logs: logs,
             query: request.query.query || '',
-            endpoint: options.endpoint
+            endpoint: options.endpoint,
+            searches: options.searches
           });
         });
       }

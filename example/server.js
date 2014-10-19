@@ -41,7 +41,10 @@ server.pack.register([
   { plugin: Good, options: goodOptions },
   { plugin: require('../'), options: {
     collection: 'logs',
-    connectionUrl: mongoUrl
+    connectionUrl: mongoUrl,
+    searches: {
+      'Server Start': 'tags:server'
+    }
   }}
 ], function (err) {
 
