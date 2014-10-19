@@ -16,6 +16,7 @@ td {
 
 .log-entry {
   border-top: 1px solid #ccc;
+  cursor: pointer;
 }
 
 .log-details {
