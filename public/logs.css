@@ -37,3 +37,17 @@ td {
 .quick-search li {
   padding-right: 10px;
 }
+
+.log-request-method {
+  text-transform: uppercase;
+}
+
+.log-type-request span {
+  color: #ccc;
+}
+span.log-request-path {
+  color: #444;
+}
+span[class*="log-request-status-4"] {
+  color: #ff0000;
+}

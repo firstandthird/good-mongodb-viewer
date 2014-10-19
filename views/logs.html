@@ -34,12 +34,12 @@
             <td class="log-timestamp">{{relative timestamp}}</td>
             <td class="log-event"><a href="{{../endpoint}}?query=event:{{event}}">{{event}}</a></td>
             <td class="log-tags">{{join tags ", "}}</td>
-            <td class="log-preview">
+            <td class="log-preview log-type-{{event}}">
               {{#ifequal event "request"}}
                 <span class="log-request-method">{{method}}</span>
                 <span class="log-request-path">{{path}}</span>
                 <span class="log-request-query">{{stringify query}}</span>
-                <span class="log-request-status">{{statusCode}}</span>
+                <span class="log-request-status log-request-status-{{statusCode}}">{{statusCode}}</span>
                 <span class="log-request-response-time">{{responseTime}}ms</span>
               {{/ifequal}}
               {{#ifequal event "ops"}}
