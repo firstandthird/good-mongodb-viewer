@@ -1,4 +1,15 @@
 
+0.2.0 / 2014-10-19 
+==================
+
+  * added mobile meta tag
+  * highlight 500 requests
+  * ability to customize searches
+  * link tags
+  * better request logging style
+  * pretty filesize for memory
+  * cursor on log entry
+
 0.1.0 / 2014-10-14 
 ==================
 
