@@ -44,7 +44,7 @@
               {{/ifequal}}
               {{#ifequal event "ops"}}
                 <span class="log-ops-load"><label>Load:</label> {{join os.load ", "}}</span>
-                <span class="log-ops-mem"><label>Mem:</label> {{os.mem.free}}/{{os.mem.total}}</span><br/>
+                <span class="log-ops-mem"><label>Mem:</label> {{filesize os.mem.free}}/{{filesize os.mem.total}}</span><br/>
                 <span class="log-ops-requests">
                   <label>Requests:</label>
                   {{#each load.requests}}
