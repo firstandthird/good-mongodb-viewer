@@ -48,6 +48,7 @@ td {
 span.log-request-path {
   color: #444;
 }
-span[class*="log-request-status-4"] {
+span[class*="log-request-status-4"],
+span.log-request-status-500 {
   color: #ff0000;
 }
