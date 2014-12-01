@@ -66,11 +66,7 @@
                 {{message}}
               {{/ifequal}}
               {{#if data}}
-                {{#if data.response.context.message}}
-                  {{data.response.context.message}}
-                {{else}}
-                  <span class="log-data">{{stringify data}}</span>
-                {{/if}}
+                <span class="log-data">{{preview data}}</span>
               {{/if}}
             </td>
           </tr>
