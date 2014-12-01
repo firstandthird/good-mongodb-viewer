@@ -1,4 +1,10 @@
 
+0.3.0 / 2014-12-01 
+==================
+
+  * support for hapi-log-response messages
+  * set limit to 200 and make it an option
+
 0.2.0 / 2014-10-19 
 ==================
 
