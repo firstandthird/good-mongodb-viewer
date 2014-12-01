@@ -8,6 +8,7 @@ var defaults = {
   auth: false,
   collection: 'logs',
   connectionUrl: '',
+  limit: 200,
   searches: {
     'Requests': 'event:request',
     'Ops': 'event:ops',
@@ -69,7 +70,7 @@ exports.register = function(plugin, options, next) {
           searchQuery = monquery(request.query.query);
         }
 
-        collection.find(searchQuery, { sort: { timestamp: -1 }, limit: 1000 }).toArray(function(err, logs) {
+        collection.find(searchQuery, { sort: { timestamp: -1 }, limit: options.limit }).toArray(function(err, logs) {
           reply.view('logs', {
             logs: logs,
             query: request.query.query || '',
