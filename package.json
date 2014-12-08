@@ -3,7 +3,7 @@
   "description": "A front end log view for good-mongodb",
   "homepage": "https://github.com/firstandthird/good-mongodb-viewer",
   "author": "First+Third",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/firstandthird/good-mongodb-viewer.git"
