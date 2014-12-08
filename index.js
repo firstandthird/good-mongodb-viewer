@@ -39,7 +39,6 @@ exports.register = function(plugin, options, next) {
     isCached: false
   });
 
-
   plugin.route([
     {
       path: options.endpoint+'/ui/{path*}',
@@ -84,6 +83,8 @@ exports.register = function(plugin, options, next) {
 
   MongoClient.connect(options.connectionUrl, function(err, database) {
     db = database;
+
+    plugin.expose('collection', db.collection(options.collection));
     next();
   });
 

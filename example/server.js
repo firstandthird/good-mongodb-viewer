@@ -58,6 +58,12 @@ server.pack.register([
        method: 'GET', 
        path: '/error', 
        handler: function(request, reply) {
+         var collection = request.server.plugins['good-mongodb-viewer'].collection;
+
+         collection.find({}, {limit: 1}).toArray(function(err, data) {
+          console.log(data);
+         });
+
          reply(Hapi.error.badRequest('bad bad bad'));
        }
      }
