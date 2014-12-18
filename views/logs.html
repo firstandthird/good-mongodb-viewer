@@ -30,7 +30,7 @@
       </thead>
       <tbody>
         {{#each logs}}
-          <tr class="log-entry">
+          <tr class="log-entry" id="{{_id}}">
             <td class="log-timestamp">{{relative timestamp}}</td>
             <td class="log-event"><a href="{{../endpoint}}?query=event:{{event}}">{{event}}</a></td>
             <td class="log-tags">
