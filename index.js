@@ -10,12 +10,12 @@ var defaults = {
   connectionUrl: '',
   limit: 200,
   searches: {
-    'Requests': 'event:request',
+    'Responses': 'event:response',
     'Ops': 'event:ops',
     'Log': 'event:log',
     'Error': 'event:error',
-    '4xxs': 'event:request AND statusCode!=200 AND statusCode!=304 AND statusCode!=302 AND statusCode!=500',
-    '500s': 'event:request AND statusCode:500'
+    '4xxs': 'event:response AND statusCode!=200 AND statusCode!=304 AND statusCode!=302 AND statusCode!=500',
+    '500s': 'event:response AND statusCode:500'
   }
 };
 

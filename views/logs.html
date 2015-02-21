@@ -39,7 +39,7 @@
               {{/each}}
             </td>
             <td class="log-preview log-type-{{event}}">
-              {{#ifequal event "request"}}
+              {{#ifequal event "response"}}
                 <span class="log-request-method">{{method}}</span>
                 <span class="log-request-path">{{path}}</span>
                 <span class="log-request-query">{{stringify query}}</span>
