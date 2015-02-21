@@ -1,4 +1,11 @@
 
+0.7.0 / 2015-02-21
+==================
+
+  * escape any html inside logs
+  * update for hapi 8 and good 5 (request -> response)
+
+
 0.6.0 / 2014-12-18 
 ==================
 
