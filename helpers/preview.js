@@ -1,4 +1,3 @@
-var Handlebars = require('handlebars');
 module.exports = function(input) {
 
   if (input.response) {
@@ -10,5 +9,5 @@ module.exports = function(input) {
     }
   }
 
-  return new Handlebars.SafeString(JSON.stringify(input, null, ''));
+  return JSON.stringify(input, null, '');
 };
