@@ -63,7 +63,7 @@
                 </span>
               {{/ifequal}}
               {{#ifequal event "error"}}
-                {{message}}
+                {{error.message}}
               {{/ifequal}}
               {{#if data}}
                 <span class="log-data">{{preview data}}</span>
