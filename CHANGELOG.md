@@ -1,4 +1,12 @@
 
+0.8.0 / 2015-05-04
+==================
+
+  * be able to pass in limit in query
+  * updated dependencies
+  * simplified default searches
+
+
 0.7.1 / 2015-02-24
 ==================
 
