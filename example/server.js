@@ -18,23 +18,25 @@ var goodOptions = {
   //opsInterval: 5000,
   reporters: [{
       reporter: require('good-console'),
-      args: [{
+      events: {
         //ops: '*',
         response: '*',
         log: '*',
         error: '*'
-      }]
+      }
     },
     {
       reporter: GoodMongoDb,
-      args: [mongoUrl, {
-        events: {
-          //ops: '*',
-          response: '*',
-          log: '*',
-          error: '*'
-        }
-      }]
+      config: {
+        connectionUrl: mongoUrl,
+        ttl: 60*5
+      },
+      events: {
+        //ops: '*',
+        response: '*',
+        log: '*',
+        error: '*'
+      }
     }
   ]
 };
