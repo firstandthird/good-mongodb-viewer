@@ -67,7 +67,9 @@ exports.register = function(plugin, options, next) {
           searchQuery = monquery(request.query.query);
         }
 
-        collection.find(searchQuery, { sort: { timestamp: -1 }, limit: options.limit }).toArray(function(err, logs) {
+        var limit = request.query.limit || options.limit;
+
+        collection.find(searchQuery, { sort: { timestamp: -1 }, limit: limit }).toArray(function(err, logs) {
           reply.view('logs', {
             logs: logs,
             query: request.query.query || '',
