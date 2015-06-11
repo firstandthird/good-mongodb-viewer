@@ -29,6 +29,9 @@
         <th>Preview</th>
       </thead>
       <tbody>
+        {{#if error}}
+          <p>{{error}}<p>
+        {{/if}}
         {{#each logs}}
           <tr class="log-entry" id="{{_id}}">
             <td class="log-timestamp">{{relative timestamp}}</td>

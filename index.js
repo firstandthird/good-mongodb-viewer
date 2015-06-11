@@ -64,7 +64,18 @@ exports.register = function(plugin, options, next) {
 
         var searchQuery = {};
         if (request.query.query) {
-          searchQuery = monquery(request.query.query);
+          try {
+            searchQuery = monquery(request.query.query);
+          } catch(e) {
+            return reply.view('logs', {
+              logs: [],
+              error: e,
+              query: request.query.query,
+              endpoint: options.endpoint,
+              searches: options.searches
+            });
+
+          }
         }
 
         var limit = request.query.limit || options.limit;
