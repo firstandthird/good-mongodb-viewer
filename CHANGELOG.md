@@ -1,4 +1,10 @@
 
+0.8.1 / 2015-06-11
+==================
+
+  * try catch around monquery and show error message
+
+
 0.8.0 / 2015-05-04
 ==================
 
