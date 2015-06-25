@@ -14,6 +14,11 @@ module.exports = function(input) {
     }
   };
 
+  //RAPPTOR adds ._server to helper objects, we need to remove
+  if (input._server) {
+    delete input._server;
+  }
+
   truncate(input);
   return JSON.stringify(input, null, '  ');
 };
