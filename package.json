@@ -9,18 +9,18 @@
     "url": "https://github.com/firstandthird/good-mongodb-viewer.git"
   },
   "dependencies": {
-    "handlebars": "^3.0.3",
-    "hoek": "^2.5.1",
+    "handlebars": "^4.0.6",
+    "hoek": "^4.1.0",
     "humanize": "0.0.9",
     "mongodb": "^2.0.28",
     "monquery": "^0.2.0",
     "relative-date": "^1.1.1"
   },
   "devDependencies": {
-    "boom": "^2.6.1",
-    "good": "^6.1.2",
-    "good-console": "^5.0.0",
-    "good-mongodb": "^0.3.0",
-    "hapi": "^8.2.0"
+    "boom": "^4.2.0",
+    "good": "^7.1.0",
+    "good-console": "^6.2.0",
+    "good-mongodb": "^0.4.0",
+    "hapi": "^16.0.2"
   }
 }
